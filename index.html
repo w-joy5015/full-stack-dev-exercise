@@ -15,30 +15,42 @@
     <script type="text/babel">
       const Table = (props) => (
         <table>
-          <Head />
           <Body results={props.results} />
         </table>
       );
 
       const Head = (props) => {
         return (
-          <thead>
             <tr>
               <th>name</th>
               <th>username</th>
               <th>email</th>
               <th>phone</th>
             </tr>
-          </thead>
         );
       };
 
       /*
-      Complete the Body component to finish rendering the results.
-      You are allowed and encouraged to create additional functions or
-      components in order to complete this task.
+      Below is the completed Body component. It renders the
+      data as a table with the Head component.
       */
-      const Body = (props) => null;
+      const Body = (props) => {
+        const results = props.results
+        return(
+          <div className ="all-rows">
+            <Head/>
+              {results.map(current => {
+                return(
+                  <tr className="single-row">
+                    <td>{current.name}</td>
+                    <td>{current.username}</td>
+                    <td>{current.email}</td>
+                    <td>{current.phone}</td>
+                  </tr>
+              )})}
+          </div>
+        )
+      };
 
       ReactDOM.render(
         <Table results={RESULTS} />,

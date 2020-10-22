@@ -21,3 +21,8 @@ td {
   width: 200px;
   padding: 5px;
 }
+
+.singleRow {
+  display: flex;
+  flex-direction: row;
+}
